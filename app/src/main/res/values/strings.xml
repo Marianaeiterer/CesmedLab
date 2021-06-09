@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CesmedLab</string>
+    <string name="button_exam">Exams</string>
+    <string name="button_results">Results</string>
+    <string name="exam_form">Patient Exams</string>
+    <string name="doctor_information">Doctor Information</string>
+    <string name="doctor_name">Name</string>
+    <string name="doctor_crm">CRM</string>
+    <string name="patient_information">Patient Information</string>
+    <string name="patient_name">Name</string>
+</resources>
