@@ -10,5 +10,7 @@
     <string name="patient_name">Name</string>
     <string name="quimica_sanguinea">QUIMICA SANGUINEA</string>
     <string name="hematolog_a">HEMATOLOGÍA</string>
-    <string name="show">Show</string>
+    <string name="show">Continue</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="cancel_button">Back</string>
 </resources>
