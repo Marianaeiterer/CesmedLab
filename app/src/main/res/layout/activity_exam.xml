@@ -40,6 +40,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/doctor_name"
         android:textColorHighlight="#1B2A8C"
@@ -57,6 +58,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/doctor_crm"
         android:textColorHighlight="#1B2A8C"
@@ -87,6 +89,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/patient_name"
         android:textColorHighlight="#1B2A8C"
@@ -95,5 +98,51 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="360dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hematolog_a" />
+
+        <ListView
+            android:id="@+id/listView_hematologia"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="25dp"
+            android:choiceMode="multipleChoice" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="@string/quimica_sanguinea" />
+
+        <ListView
+            android:id="@+id/listView_qumicaS"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="225dp"
+            android:choiceMode="multipleChoice" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/ShowList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
+        android:text="@string/show"
+        android:onClick="ListChecked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.897"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

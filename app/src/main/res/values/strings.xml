@@ -8,4 +8,7 @@
     <string name="doctor_crm">CRM</string>
     <string name="patient_information">Patient Information</string>
     <string name="patient_name">Name</string>
+    <string name="quimica_sanguinea">QUIMICA SANGUINEA</string>
+    <string name="hematolog_a">HEMATOLOGÍA</string>
+    <string name="show">Show</string>
 </resources>
