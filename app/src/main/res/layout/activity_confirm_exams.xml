@@ -27,6 +27,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginBottom="101dp"
         android:background="#1B2A8C"
+        android:onClick="onConfirmation"
         android:text="@string/confirm_button"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
