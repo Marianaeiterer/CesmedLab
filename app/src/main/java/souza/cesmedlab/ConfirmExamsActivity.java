@@ -66,6 +66,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
     }
 
     public void onConfirmation(View view){
+
         createPDF("Exams.pdf");
     }
 
@@ -88,7 +89,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CREATEPDF) {
             if (data.getData() != null) {
-                Uri caminhDoArquivo = data.getData();
+                Uri caminhoDoArquivo = data.getData();
 
                 PdfDocument pdfDocument = new PdfDocument();
                 Paint title = new Paint();
@@ -116,7 +117,8 @@ public class ConfirmExamsActivity extends AppCompatActivity {
                 }
 
                 pdfDocument.finishPage(page);
-                gravarPdf(caminhDoArquivo, pdfDocument);
+                gravarPdf(caminhoDoArquivo, pdfDocument);
+                sendEmail(caminhoDoArquivo, pdfDocument);
             }
         }
     }
@@ -137,6 +139,27 @@ public class ConfirmExamsActivity extends AppCompatActivity {
         } catch (Exception e) {
             Toast.makeText(this, "Unknown Error" + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void sendEmail(Uri caminhDoArquivo, PdfDocument pdfDocument){
+        // alexis.ortiz81@outlook.com, lucas.sms@gmail.com, oscar.fmalves@gmail.com
+        Toast.makeText(this, "Send PDF in the Email", Toast.LENGTH_LONG).show();
+        String recipientsList = "marieiterer@gmail.com, alexis.ortiz81@outlook.com";
+        String[] recipients = recipientsList.split(",");
+        String subject = "Exams Requirements - Patient: " + patientName;
+        String message = patientName + " needs to do the following exams\nAtt, \n" + doctorName;
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        intent.putExtra(Intent.EXTRA_STREAM, caminhDoArquivo);
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Send email using:"));
+
+
     }
 
 }
