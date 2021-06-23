@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class activity_result extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
     Button button;
     EditText correo, mensaje;
 
