@@ -17,4 +17,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ExamActivity.class);
         startActivity(intent);
     }
+    public void onResultForm(View view){
+        Intent intent = new Intent(this, activity_result.class);
+        startActivity(intent);
+    }
 }

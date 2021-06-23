@@ -67,7 +67,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
 
     public void onConfirmation(View view){
 
-        createPDF("Exams.pdf");
+        createPDF("Exams"+"-"+patientName+".pdf");
     }
 
     private void createPDF(String title) {
@@ -82,6 +82,12 @@ public class ConfirmExamsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ExamActivity.class);
         startActivity(intent);
     }
+    public void newPatience(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
