@@ -22,43 +22,81 @@
             android:textSize="24dp" />
     </LinearLayout>
 
+
     <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:orientation="horizontal">
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="vertical">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:orientation="horizontal">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:height="30dp"
-                android:layout_marginTop="10dp"
-                android:text="DOCTOR CRM: "></TextView>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:height="30dp"
+                    android:text="DOCTOR CRM "
+                    android:textColor="#000000"
+                    android:textSize="17dp" ></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/caja_crm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:hint="CRM"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/caja_crm"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:height="30dp"
+                    android:text="DOCTOR NAME "
+                    android:textColor="#000000"
+                    android:textSize="17dp" ></TextView>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:hint="CRM" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/caja_doctorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:hint="DOCTOR NAME"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
 
         </LinearLayout>
+
 
     </LinearLayout>
 
@@ -77,19 +115,19 @@
     <LinearLayout
         android:layout_width="389dp"
         android:layout_height="394dp"
-
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="250dp"
         android:layout_marginEnd="7dp"
         android:layout_marginRight="7dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginBottom="116dp"
         android:orientation="vertical"
         tools:ignore="UnknownId">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,11 +148,11 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/caja_patienceName"
+                android:id="@+id/caja_patientName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:hint="Example: juanperez@gmail.com" />
+                android:hint="PATIENT NAME" />
 
         </LinearLayout>
 
@@ -178,29 +216,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="430dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="78dp">
+        android:layout_marginBottom="24dp">
 
         <Button
             android:id="@+id/btn_enviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#1B2A8C"
+            android:onClick="confirmResult"
             android:text="SEND"
             android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btn_goHome"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
             android:background="#1B2A8C"

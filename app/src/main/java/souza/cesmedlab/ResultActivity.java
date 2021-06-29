@@ -8,48 +8,39 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class ResultActivity extends AppCompatActivity {
-    Button button;
-    EditText correo, mensaje;
+    Button send;
+    public final static String email="Email", result="Result ",
+            patienceName="Patience Name", doctorCRM="Doctor CRM",
+            doctorName = "Doctor Name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        correo = findViewById(R.id.caja_correo);
-        mensaje = findViewById(R.id.caja_mensaje);
-        button = findViewById(R.id.btn_enviar);
 
-        // El setOnClickListener del botón Enviar
+    }
+    public void confirmResult(View view){
+        EditText editText = (EditText) findViewById(R.id.caja_crm);
+        String dCRM = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.caja_doctorName);
+        String doctorNames = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.caja_patientName);
+        String patienceNames = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.caja_correo);
+        String Email = editText.getText().toString();
+        editText = (EditText) findViewById(R.id.caja_mensaje);
+        String Result = editText.getText().toString();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        send = findViewById(R.id.btn_enviar);
+        Intent intent = new Intent(this, activity_confirm_result.class);
+        intent.putExtra(doctorCRM, dCRM);
+        intent.putExtra(doctorName, doctorNames);
+        intent.putExtra(patienceName, patienceNames);
+        intent.putExtra(email, Email);
+        intent.putExtra(result, Result);
 
-            @Override
-            public void onClick(View view)
-            {
-                String enviarcorreo =correo.getText().toString();//  here lab email
-                String enviarasunto = "Exámenes";
-                String enviarmensaje = mensaje.getText().toString();// here the pdf file
 
-                // Defino mi Intent y hago uso del objeto ACTION_SEND
-                Intent intent = new Intent(Intent.ACTION_SEND);
-
-                // Defino los Strings Email, Asunto y Mensaje con la función putExtra
-                intent.putExtra(Intent.EXTRA_EMAIL,
-                        new String[] { enviarcorreo });
-                intent.putExtra(Intent.EXTRA_SUBJECT, enviarasunto);
-                intent.putExtra(Intent.EXTRA_TEXT, enviarmensaje);
-
-                // Establezco el tipo de Intent
-                intent.setType("message/rfc822");
-
-                // Lanzo el selector de cliente de Correo
-                startActivity(
-                        Intent
-                                .createChooser(intent,
-                                        "Elije un cliente de Correo:"));
-            }
-        });
-
+        startActivity(intent);
 
     }
     public void goHome(View view){
