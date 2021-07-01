@@ -7,7 +7,7 @@
     tools:context=".ConfirmExamsActivity">
 
     <TextView
-        android:id="@+id/confirmation"
+        android:id="@+id/result"
         android:layout_width="372dp"
         android:layout_height="522dp"
         android:layout_marginTop="24dp"
@@ -24,6 +24,7 @@
         android:layout_height="59dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="101dp"
         android:background="#1B2A8C"
         android:onClick="onConfirmation"
@@ -31,12 +32,14 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="119dp"
         android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="101dp"
@@ -47,6 +50,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result"
         tools:ignore="OnClick" />
 
 </android.support.constraint.ConstraintLayout>

@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CesmedLab">
-        <activity android:name=".activity_confirm_result"
+        <activity android:name=".ConfirmResultActivity"
             android:parentActivityName=".ResultActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

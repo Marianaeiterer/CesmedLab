@@ -3,13 +3,19 @@ package souza.cesmedlab;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.pdf.PdfDocument;
+import android.graphics.text.LineBreaker;
+import android.graphics.text.MeasuredText;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
-public class activity_confirm_result extends AppCompatActivity {
+public class ConfirmResultActivity extends AppCompatActivity {
     String doctorCRM, doctorName, patienceName, email, result;
     public static final int CREATEPDF = 1;
 
@@ -34,12 +40,14 @@ public class activity_confirm_result extends AppCompatActivity {
             patienceName = intent.getStringExtra("Patience Name");
             email = intent.getStringExtra("Email");
             result = intent.getStringExtra("Result");
-            TextView textView = findViewById(R.id.confirmation);
-            textView.setText("Doctor CRM: "+doctorCRM+"\n\nDoctor Name: "+doctorName+"\n\nPatience Name: "+patienceName+"\n\nE-mail: "+email+"\n\nResult: "+result);
+            TextView textView = findViewById(R.id.result);
+            textView.setText("Doctor CRM: " + doctorCRM +
+                    "\n\nDoctor Name: "  + doctorName + "\n\nPatience Name: " +
+                    patienceName + "\n\nE-mail: " + email + "\n\nResult: " + result);
 
         }else{
-            TextView textView = findViewById(R.id.confirmation);
-            textView.setText("WARRING \n\nWrite anything");
+            TextView textView = findViewById(R.id.result);
+            textView.setText("WARRING");
         }
     }
     public void onConfirmation(View view){
@@ -78,18 +86,62 @@ public class activity_confirm_result extends AppCompatActivity {
                 text.setFakeBoldText(false);
 
                 //canvas.drawText("Doctor Name: " + doctorName, 100, 200, text);
-                canvas.drawText("Doctor CRM: " + doctorCRM , 100, 250, text);
+                canvas.drawText("Doctor CRM: " + doctorCRM , 100, 200, text);
                 canvas.drawText("Doctor Name: " + doctorName , 100, 250, text);
                 canvas.drawText("Patient Name: " + patienceName , 100, 300, text);
-                canvas.drawText("Patient Email: " + email , 100, 300, text);
-                canvas.drawText("Required Result : "+result , 100, 350, text);
-
+                canvas.drawText("Results : " , 100, 350, text);
+                Rect bounds = new Rect();
+                drawMultilineText(result, 100, 400, text, canvas, 40, bounds);
 
                 pdfDocument.finishPage(page);
                 gravarPdf(caminhoDoArquivo, pdfDocument);
                 sendEmail(caminhoDoArquivo, pdfDocument);
             }
         }
+    }
+
+    private int calculateWidthFromFontSize(String testString, int currentSize)
+    {
+        Rect bounds = new Rect();
+        Paint paint = new Paint();
+        paint.setTextSize(currentSize);
+        paint.getTextBounds(testString, 0, testString.length(), bounds);
+
+        return (int) Math.ceil( bounds.width());
+    }
+
+    private int calculateHeightFromFontSize(String testString, int currentSize)
+    {
+        Rect bounds = new Rect();
+        Paint paint = new Paint();
+        paint.setTextSize(currentSize);
+        paint.getTextBounds(testString, 0, testString.length(), bounds);
+
+        return (int) Math.ceil( bounds.height());
+    }
+
+    private void drawMultilineText(String str, int x, int y, Paint paint, Canvas canvas, int fontSize, Rect drawSpace) {
+        int      lineHeight = 0;
+        int      yoffset    = 0;
+        String[] lines      = str.split(" ");
+
+        // set height of each line (height of text + 20%)
+        lineHeight = (int) (calculateHeightFromFontSize(str, fontSize) * 1.2);
+        // draw each line
+        String line = "";
+        for (int i = 0; i < lines.length; ++i) {
+
+            if(calculateWidthFromFontSize(line + " " + lines[i], fontSize) <= drawSpace.width()){
+                line = line + " " + lines[i];
+
+            }else{
+                canvas.drawText(line, x, y + yoffset, paint);
+                yoffset = yoffset + lineHeight;
+                line = lines[i];
+            }
+        }
+        canvas.drawText(line, x, y + yoffset, paint);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

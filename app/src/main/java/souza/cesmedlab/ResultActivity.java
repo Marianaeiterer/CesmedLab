@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 public class ResultActivity extends AppCompatActivity {
     Button send;
-    public final static String email="Email", result="Result ",
+    public final static String email="Email", result="Result",
             patienceName="Patience Name", doctorCRM="Doctor CRM",
             doctorName = "Doctor Name";
 
@@ -32,14 +32,12 @@ public class ResultActivity extends AppCompatActivity {
         String Result = editText.getText().toString();
 
         send = findViewById(R.id.btn_enviar);
-        Intent intent = new Intent(this, activity_confirm_result.class);
+        Intent intent = new Intent(this, ConfirmResultActivity.class);
         intent.putExtra(doctorCRM, dCRM);
         intent.putExtra(doctorName, doctorNames);
         intent.putExtra(patienceName, patienceNames);
         intent.putExtra(email, Email);
         intent.putExtra(result, Result);
-
-
         startActivity(intent);
 
     }

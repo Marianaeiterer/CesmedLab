@@ -7,7 +7,7 @@
     tools:context=".ConfirmExamsActivity">
 
     <TextView
-        android:id="@+id/confirmation"
+        android:id="@+id/result"
         android:layout_width="365dp"
         android:layout_height="157dp"
         android:layout_marginStart="24dp"
@@ -60,19 +60,20 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmation" />
+        app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_width="115dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginBottom="24dp"
+        android:background="#1B2A8C"
         android:onClick="newPatience"
         android:text="New patience"
-        android:background="#1B2A8C"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exams" />
 

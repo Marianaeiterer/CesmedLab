@@ -1,24 +1,15 @@
 package souza.cesmedlab;
 
-import android.Manifest;
-import android.content.ActivityNotFoundException;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
-import android.net.IpSecManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -26,12 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class ConfirmExamsActivity extends AppCompatActivity {
@@ -57,10 +45,10 @@ public class ConfirmExamsActivity extends AppCompatActivity {
             listView.setAdapter(items);
 
             // Capture the layout's TextView and set the string as its text
-            TextView textView = findViewById(R.id.confirmation);
+            TextView textView = findViewById(R.id.result);
             textView.setText("Doctor Name: " + doctorName + "\n\nDoctor CRM: " + doctorCRM + "\n\nPatient Name: " + patientName + "\n\nRequired Exams : ");
         } else {
-            TextView textView = findViewById(R.id.confirmation);
+            TextView textView = findViewById(R.id.result);
             textView.setText("Oh, don't you have a favorite scripture? Try Ether 12:27");
         }
     }
@@ -150,7 +138,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
     private void sendEmail(Uri caminhDoArquivo, PdfDocument pdfDocument){
         // alexis.ortiz81@outlook.com, lucas.sms@gmail.com, oscar.fmalves@gmail.com
         Toast.makeText(this, "Send PDF in the Email", Toast.LENGTH_LONG).show();
-        String recipientsList = "marieiterer@gmail.com, alexis.ortiz81@outlook.com";
+        String recipientsList = "marieiterer@gmail.com, lucas.sms@gmail.com";
         String[] recipients = recipientsList.split(",");
         String subject = "Exams Requirements - Patient: " + patientName;
         String message = patientName + " needs to do the following exams\nAtt, \n" + doctorName;
