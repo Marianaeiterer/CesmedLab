@@ -27,6 +27,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
     String doctorCRM;
     String patientName;
     ArrayList<String> exams;
+    public Bitmap logo, scaledlogo;
     public static final int CREATEPDF = 1;
 
     @Override
@@ -43,6 +44,10 @@ public class ConfirmExamsActivity extends AppCompatActivity {
             ListView listView = findViewById(R.id.exams);
             ArrayAdapter<String> items = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exams);
             listView.setAdapter(items);
+
+            //Draw image in the PDF file
+            logo = BitmapFactory.decodeResource(getResources(), R.drawable.logo); //Image in PDF file
+            scaledlogo = Bitmap.createScaledBitmap(logo, 50, 50, false); //Image scale
 
             // Capture the layout's TextView and set the string as its text
             TextView textView = findViewById(R.id.result);
@@ -100,6 +105,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
                 text.setTextSize(40f);
                 text.setFakeBoldText(false);
 
+                canvas.drawBitmap(scaledlogo, 0, 0, myPaint); //Position of the image in the PDF file
                 canvas.drawText("Doctor Name: " + doctorName, 100, 200, text);
                 canvas.drawText("Doctor CRM: " + doctorCRM , 100, 250, text);
                 canvas.drawText("Patient Name: " + patientName , 100, 300, text);
