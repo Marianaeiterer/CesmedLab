@@ -53,4 +53,17 @@
         app:layout_constraintTop_toBottomOf="@+id/result"
         tools:ignore="OnClick" />
 
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="105dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="95dp"
+        android:background="#1B2A8C"
+        android:onClick="newPatience"
+        android:text="New Patient"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result" />
+
 </android.support.constraint.ConstraintLayout>

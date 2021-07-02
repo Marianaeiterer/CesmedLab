@@ -1,6 +1,8 @@
 package souza.cesmedlab;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -46,11 +48,11 @@ public class ConfirmResultActivity extends AppCompatActivity {
                     "\n\nDoctor Name: "  + doctorName + "\n\nPatience Name: " +
                     patienceName + "\n\nE-mail: " + email + "\n\nResult: " + result);
             logo = BitmapFactory.decodeResource(getResources(), R.drawable.logo); //Image in PDF file
-            scaledlogo = Bitmap.createScaledBitmap(logo, 50, 50, false); //Image scale
+            scaledlogo = Bitmap.createScaledBitmap(logo, 300, 350, false); //Image scale
 
         }else{
             TextView textView = findViewById(R.id.result);
-            textView.setText("WARRING");
+            textView.setText("WARNING");
         }
     }
     public void onConfirmation(View view){
@@ -89,7 +91,8 @@ public class ConfirmResultActivity extends AppCompatActivity {
                 text.setFakeBoldText(false);
 
                 //canvas.drawText("Doctor Name: " + doctorName, 100, 200, text);
-                canvas.drawBitmap(scaledlogo, 0, 0, myPaint); //Position of the image in the PDF file
+                Paint myPaint = new Paint();
+                canvas.drawBitmap(scaledlogo, 1240-400, 1754-450, myPaint); //Position of the image in the PDF file
                 canvas.drawText("Doctor CRM: " + doctorCRM , 100, 200, text);
                 canvas.drawText("Doctor Name: " + doctorName , 100, 250, text);
                 canvas.drawText("Patient Name: " + patienceName , 100, 300, text);
@@ -187,6 +190,11 @@ public class ConfirmResultActivity extends AppCompatActivity {
     }
     public void goBack(View view){
         Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
+    }
+
+    public void newPatience(View view){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

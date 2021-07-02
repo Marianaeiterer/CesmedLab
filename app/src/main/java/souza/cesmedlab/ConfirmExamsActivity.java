@@ -1,6 +1,8 @@
 package souza.cesmedlab;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
@@ -47,14 +49,14 @@ public class ConfirmExamsActivity extends AppCompatActivity {
 
             //Draw image in the PDF file
             logo = BitmapFactory.decodeResource(getResources(), R.drawable.logo); //Image in PDF file
-            scaledlogo = Bitmap.createScaledBitmap(logo, 50, 50, false); //Image scale
+            scaledlogo = Bitmap.createScaledBitmap(logo, 300, 350, false); //Image scale
 
             // Capture the layout's TextView and set the string as its text
             TextView textView = findViewById(R.id.result);
             textView.setText("Doctor Name: " + doctorName + "\n\nDoctor CRM: " + doctorCRM + "\n\nPatient Name: " + patientName + "\n\nRequired Exams : ");
         } else {
             TextView textView = findViewById(R.id.result);
-            textView.setText("Oh, don't you have a favorite scripture? Try Ether 12:27");
+            textView.setText("Warning");
         }
     }
 
@@ -105,7 +107,8 @@ public class ConfirmExamsActivity extends AppCompatActivity {
                 text.setTextSize(40f);
                 text.setFakeBoldText(false);
 
-                canvas.drawBitmap(scaledlogo, 0, 0, myPaint); //Position of the image in the PDF file
+                Paint myPaint = new Paint();
+                canvas.drawBitmap(scaledlogo, 1240-400, 1754-450 , myPaint); //Position of the image in the PDF file
                 canvas.drawText("Doctor Name: " + doctorName, 100, 200, text);
                 canvas.drawText("Doctor CRM: " + doctorCRM , 100, 250, text);
                 canvas.drawText("Patient Name: " + patientName , 100, 300, text);
