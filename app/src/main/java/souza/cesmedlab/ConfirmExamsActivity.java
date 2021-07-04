@@ -38,9 +38,9 @@ public class ConfirmExamsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_exams);
         Intent intent = getIntent();
         if (intent != null) { // If nothing was sent, make sure we don't try to read it
-            doctorName = intent.getStringExtra("Doctor Name");     // If param not there, then it will be null
-            doctorCRM = intent.getStringExtra("Doctor CRM");  // If param not there, then set it to 0
-            patientName = intent.getStringExtra("Patient Name");
+            doctorName = intent.getStringExtra("Doctor's Name");     // If param not there, then it will be null
+            doctorCRM = intent.getStringExtra("Doctor's CRM");  // If param not there, then set it to 0
+            patientName = intent.getStringExtra("Patient's Name");
             Bundle bundle = getIntent().getExtras();
             exams = bundle.getStringArrayList("exams");
             ListView listView = findViewById(R.id.exams);

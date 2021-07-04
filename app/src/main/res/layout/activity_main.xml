@@ -41,8 +41,7 @@
     <ImageView
         android:id="@+id/logoLab"
         android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:srcCompat="@drawable/ic_logo"
+        android:layout_height="0dp"
         android:layout_marginTop="108dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,5 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.258"
+        app:srcCompat="@drawable/logo"
         tools:ignore="VectorDrawableCompat" />
 </android.support.constraint.ConstraintLayout>
