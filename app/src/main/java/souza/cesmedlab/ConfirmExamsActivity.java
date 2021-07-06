@@ -53,7 +53,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
 
             // Capture the layout's TextView and set the string as its text
             TextView textView = findViewById(R.id.result);
-            textView.setText("Doctor Name: " + doctorName + "\n\nDoctor CRM: " + doctorCRM + "\n\nPatient Name: " + patientName + "\n\nRequired Exams : ");
+            textView.setText("Doctor's Name: " + doctorName + "\n\nDoctor's CRM: " + doctorCRM + "\n\nPatient's Name: " + patientName + "\n\nRequired Exams : ");
         } else {
             TextView textView = findViewById(R.id.result);
             textView.setText("Warning");

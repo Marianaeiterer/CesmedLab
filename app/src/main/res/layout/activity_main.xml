@@ -12,7 +12,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:background="#1B2A8C"
+        android:background="#673AB7"
         android:onClick="onExamsForm"
         android:text="@string/button_exam"
         android:textColor="#FFFFFF"
@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
 
     <Button
         android:id="@+id/button2"
@@ -28,7 +29,7 @@
         android:layout_height="70dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="#1B2A8C"
+        android:background="#673AB7"
         android:onClick="onResultForm"
         android:text="@string/button_results"
         android:textColor="#FFFFFF"
@@ -36,19 +37,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
 
     <ImageView
         android:id="@+id/logoLab"
         android:layout_width="150dp"
         android:layout_height="0dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo"
         tools:ignore="VectorDrawableCompat" />
 </android.support.constraint.ConstraintLayout>
