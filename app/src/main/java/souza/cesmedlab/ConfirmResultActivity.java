@@ -38,14 +38,14 @@ public class ConfirmResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_result);
         Intent intent = getIntent();
         if(intent != null){
-            doctorCRM = intent.getStringExtra("Doctor CRM");
-            doctorName = intent.getStringExtra("Doctor Name");
-            patienceName = intent.getStringExtra("Patience Name");
+            doctorCRM = intent.getStringExtra("Doctor's CRM");
+            doctorName = intent.getStringExtra("Doctor's Name");
+            patienceName = intent.getStringExtra("Patience's Name");
             email = intent.getStringExtra("Email");
             result = intent.getStringExtra("Result");
             TextView textView = findViewById(R.id.result);
-            textView.setText("Doctor CRM: " + doctorCRM +
-                    "\n\nDoctor Name: "  + doctorName + "\n\nPatience Name: " +
+            textView.setText("Doctor's CRM: " + doctorCRM +
+                    "\n\nDoctor's Name: "  + doctorName + "\n\nPatience's Name: " +
                     patienceName + "\n\nE-mail: " + email + "\n\nResult: " + result);
             logo = BitmapFactory.decodeResource(getResources(), R.drawable.logo); //Image in PDF file
             scaledlogo = Bitmap.createScaledBitmap(logo, 300, 350, false); //Image scale
@@ -56,7 +56,7 @@ public class ConfirmResultActivity extends AppCompatActivity {
         }
     }
     public void onConfirmation(View view){
-        createPDF("Result"+"-"+patienceName+".pdf");
+        createPDF("Result - " + patienceName+ ".pdf");
 
     }
     private void createPDF(String title){
@@ -93,9 +93,9 @@ public class ConfirmResultActivity extends AppCompatActivity {
                 //canvas.drawText("Doctor Name: " + doctorName, 100, 200, text);
                 Paint myPaint = new Paint();
                 canvas.drawBitmap(scaledlogo, 1240-400, 1754-450, myPaint); //Position of the image in the PDF file
-                canvas.drawText("Doctor CRM: " + doctorCRM , 100, 200, text);
-                canvas.drawText("Doctor Name: " + doctorName , 100, 250, text);
-                canvas.drawText("Patient Name: " + patienceName , 100, 300, text);
+                canvas.drawText("Doctor's CRM: " + doctorCRM , 100, 200, text);
+                canvas.drawText("Doctor's Name: " + doctorName , 100, 250, text);
+                canvas.drawText("Patient's Name: " + patienceName , 100, 300, text);
                 canvas.drawText("Results : " , 100, 350, text);
                 Rect bounds = new Rect();
                 drawMultilineText(result, 100, 400, text, canvas, 40, bounds);
@@ -169,12 +169,12 @@ public class ConfirmResultActivity extends AppCompatActivity {
         }
     }
     private void sendEmail(Uri caminhDoArquivo, PdfDocument pdfDocument){
-        // alexis.ortiz81@outlook.com, lucas.sms@gmail.com, oscar.fmalves@gmail.com
+        // alexis.ortiz81@outlook.com, lucas.sms@gmail.com, oscar.fmalves@gmail.com, marieiterer@gmail.com
         Toast.makeText(this, "Send PDF in the Email", Toast.LENGTH_LONG).show();
         String recipientsList = email;
         String[] recipients = recipientsList.split(",");
         String subject = "Exams Requirements - Patient: " + patienceName;
-        String message = patienceName + " needs to do the following requirements\nAtt, \n" + doctorName;
+        String message = patienceName + " please follow the instructions on the document.\nAtt, \n" + "Doctor " + doctorName;
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);

@@ -62,7 +62,7 @@ public class ConfirmExamsActivity extends AppCompatActivity {
 
     public void onConfirmation(View view){
 
-        createPDF("Exams"+"-"+patientName+".pdf");
+        createPDF("Exams - " + patientName + ".pdf");
     }
 
     private void createPDF(String title) {
@@ -109,9 +109,9 @@ public class ConfirmExamsActivity extends AppCompatActivity {
 
                 Paint myPaint = new Paint();
                 canvas.drawBitmap(scaledlogo, 1240-400, 1754-450 , myPaint); //Position of the image in the PDF file
-                canvas.drawText("Doctor Name: " + doctorName, 100, 200, text);
-                canvas.drawText("Doctor CRM: " + doctorCRM , 100, 250, text);
-                canvas.drawText("Patient Name: " + patientName , 100, 300, text);
+                canvas.drawText("Doctor's Name: " + doctorName, 100, 200, text);
+                canvas.drawText("Doctor's CRM: " + doctorCRM , 100, 250, text);
+                canvas.drawText("Patient's Name: " + patientName , 100, 300, text);
                 canvas.drawText("Required Exams : " , 100, 350, text);
                 int y = 410;
                 for(int i = 0; i < exams.size(); i++){
@@ -147,10 +147,10 @@ public class ConfirmExamsActivity extends AppCompatActivity {
     private void sendEmail(Uri caminhDoArquivo, PdfDocument pdfDocument){
         // alexis.ortiz81@outlook.com, lucas.sms@gmail.com, oscar.fmalves@gmail.com
         Toast.makeText(this, "Send PDF in the Email", Toast.LENGTH_LONG).show();
-        String recipientsList = "marieiterer@gmail.com, lucas.sms@gmail.com";
+        String recipientsList = "marieiterer@gmail.com, lucas.sms@gmail.com, alexis.ortiz81@outlook.com ";
         String[] recipients = recipientsList.split(",");
         String subject = "Exams Requirements - Patient: " + patientName;
-        String message = patientName + " needs to do the following exams\nAtt, \n" + doctorName;
+        String message = patientName + " needs to do the following exams\nAtt, \n" + "Doctor " + doctorName;
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);

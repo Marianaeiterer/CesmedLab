@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExamActivity extends AppCompatActivity {
-    public final static String doctorName = "Doctor Name";
-    public final static String doctorCRM = "Doctor CRM";
-    public final static String patientName = "Patient Name";
+    public final static String doctorName = "Doctor's Name";
+    public final static String doctorCRM = "Doctor's CRM";
+    public final static String patientName = "Patient's Name";
     public final static ArrayList<String> items = new ArrayList<>();
     private Button showList;
     ListView listHematologias, listQumicaS;

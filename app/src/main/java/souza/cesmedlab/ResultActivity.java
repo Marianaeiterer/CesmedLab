@@ -10,8 +10,8 @@ import android.widget.EditText;
 public class ResultActivity extends AppCompatActivity {
     Button send;
     public final static String email="Email", result="Result",
-            patienceName="Patience Name", doctorCRM="Doctor CRM",
-            doctorName = "Doctor Name";
+            patienceName="Patience's Name", doctorCRM="Doctor's CRM",
+            doctorName = "Doctor's Name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
